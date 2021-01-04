@@ -16,3 +16,7 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+Route::get('{path:.*}', function () {
+    return view('app');
+});
