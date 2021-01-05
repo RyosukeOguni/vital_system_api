@@ -2,6 +2,8 @@
 
 /** @var \Laravel\Lumen\Routing\Router $router */
 
+use Carbon\Carbon;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -14,8 +16,17 @@
 */
 
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+    return Carbon::now();
 });
+
+$router->group(['prefix' => 'api'], function ($router) {
+    $router->get('/users', 'UserController@index');
+    $router->post('/users', 'UserController@store');
+    $router->get('/users/{id}', 'UserController@show');
+    $router->put('/users/{id}', 'UserController@update');
+    $router->delete('/users/{id}', 'UserController@destroy');
+});
+
 
 Route::get('{path:.*}', function () {
     return view('app');
