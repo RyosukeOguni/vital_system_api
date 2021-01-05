@@ -26,6 +26,8 @@ $app = new Laravel\Lumen\Application(
 $app->withFacades();
 $app->withEloquent();
 $app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
+$app->register(Mnabialek\LaravelSqlLogger\Providers\ServiceProvider::class);
+
 /*
 |--------------------------------------------------------------------------
 | Register Container Bindings
