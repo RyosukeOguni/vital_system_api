@@ -49,6 +49,12 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
+        // 404ページ処理
+        if ($exception instanceof NotFoundHttpException || $exception instanceof ModelNotFoundException) {
+            // pageが見つからない時に表示するページ
+            // resource/error/404.blade.php
+            return view('errors.404');
+        }
         return parent::render($request, $exception);
     }
 }
