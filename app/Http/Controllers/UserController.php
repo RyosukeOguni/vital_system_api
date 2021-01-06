@@ -40,7 +40,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
+        $user = User::findorFail($id);
         return new UserResource($user);
     }
 
@@ -53,7 +53,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::find($id);
+        $user = User::findorFail($id);
         $user->update($request->all());
         return new UserResource($user);
     }
@@ -66,7 +66,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        User::find($id)->delete();
+        User::findorFail($id)->delete();
         return response('Deleted successfully.', 200);
     }
 }
