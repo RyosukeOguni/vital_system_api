@@ -15,18 +15,18 @@ use Carbon\Carbon;
 |
 */
 
-$router->get('/', function () use ($router) {
-    return Carbon::now();
-});
 
 $router->group(['prefix' => 'api'], function ($router) {
+    //利用者API
     $router->get('/users', 'UserController@index');
     $router->post('/users', 'UserController@store');
     $router->get('/users/{id}', 'UserController@show');
     $router->put('/users/{id}', 'UserController@update');
     $router->delete('/users/{id}', 'UserController@destroy');
+    //天候API
+    $router->get('/weathers', 'WeatherController@index');
+    $router->post('/weathers', 'WeatherController@store');
 });
-
 
 Route::get('{path:.*}', function () {
     return view('app');
