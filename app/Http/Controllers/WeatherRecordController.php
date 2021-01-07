@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Resources\Weather as WeatherResource;
-use App\Http\Resources\WeatherCollection;
 use App\Models\WeatherRecord;
+use App\Http\Resources\WeatherRecordCollection;
+use App\Http\Resources\WeatherRecord as WeatherRecordResource;
 
-class WeatherController extends Controller
+class WeatherRecordController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,12 +16,12 @@ class WeatherController extends Controller
      */
     public function index(Request $request)
     {
-        if ($request->query('day')){
-            $weather = WeatherRecord::where('day',$request->day)->firstorFail();
-            return new WeatherResource($weather);
+        if ($request->query('day')) {
+            $weather = WeatherRecord::where('day', $request->day)->firstorFail();
+            return new WeatherRecordResource($weather);
         }
         $weathers = WeatherRecord::all();
-        return new WeatherCollection($weathers);
+        return new WeatherRecordCollection($weathers);
     }
 
     /**
@@ -33,6 +33,6 @@ class WeatherController extends Controller
     public function store(Request $request)
     {
         $weather = WeatherRecord::create($request->all());
-        return new WeatherResource($weather);
+        return new WeatherRecordResource($weather);
     }
 }

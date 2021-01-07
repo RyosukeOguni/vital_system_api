@@ -24,8 +24,15 @@ $router->group(['prefix' => 'api'], function ($router) {
     $router->put('/users/{id}', 'UserController@update');
     $router->delete('/users/{id}', 'UserController@destroy');
     //天候API
-    $router->get('/weathers', 'WeatherController@index');
-    $router->post('/weathers', 'WeatherController@store');
+    $router->get('/weather_records', 'WeatherRecordController@index');
+    $router->post('/weather_records', 'WeatherRecordController@store');
+    //診断記録API
+    $router->get('/index/medicals', 'MedicalController@index');
+    $router->get('/medicals', 'MedicalController@index');
+    $router->post('/medicals', 'MedicalController@store');
+    $router->get('/medicals/{id}', 'MedicalController@show');
+    $router->put('/medicals/{id}', 'MedicalController@update');
+    $router->delete('/medicals/{id}', 'MedicalController@destroy');
 });
 
 Route::get('{path:.*}', function () {
