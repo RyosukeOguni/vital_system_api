@@ -28,7 +28,7 @@ class Weather extends JsonResource
                 ]
             ],
             'links' => [
-                'self' => url('/api/weathers/' . $this->id),
+                'self' => url('/api/weather_records/' . $this->id),
             ]
         ];
     }

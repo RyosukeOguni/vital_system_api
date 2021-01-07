@@ -4,11 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Weather extends Model
+class WeatherRecord extends Model
 {
-    // テーブル名を明示的に指定
-    protected $table = 'weathers';
-
     /**
      * The attributes that are mass assignable.
      *
@@ -17,4 +14,10 @@ class Weather extends Model
     protected $guarded = [
         'id',
     ];
+
+    // 主キーの設定
+    public function medical()
+    {
+        return $this->hasMany('App\Models\Medical');
+    }
 }

@@ -17,7 +17,7 @@ class WeatherCollection extends ResourceCollection
         return [
             'date' => $this->collection,
             'links' => [
-                'self' => url('/api/weathers'),
+                'self' => url('/api/weather_records'),
             ]
         ];
     }
