@@ -33,4 +33,10 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     protected $dates = [
         'deleted_at'
     ];
+
+    // 主キーの設定
+    public function medicals()
+    {
+        return $this->hasMany('App\Models\Medical');
+    }
 }
