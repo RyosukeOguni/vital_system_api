@@ -16,7 +16,7 @@ class CreateMedicalsTable extends Migration
         Schema::create('medicals', function (Blueprint $table) {
             $table->bigIncrements('id')->comment('ID');
             $table->integer('user_id')->comment('利用者ID');
-            $table->integer('weather_id')->comment('天候記録ID');
+            $table->integer('weather_record_id')->comment('天候記録ID');
             $table->double('body_temp')->nullable()->comment('体温');
             $table->integer('pulse')->nullable()->comment('脈拍');
             $table->integer('breath')->nullable()->comment('呼吸頻度');
