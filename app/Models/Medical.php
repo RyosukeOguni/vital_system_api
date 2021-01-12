@@ -31,8 +31,8 @@ class Medical extends Model
         return $this->belongsTo('App\Models\User');
     }
 
-    public function weather()
+    public function weatherRecord()
     {
-        return $this->belongsTo('App\Models\Weather');
+        return $this->belongsTo('App\Models\WeatherRecord');
     }
 }

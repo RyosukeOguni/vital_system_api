@@ -27,7 +27,7 @@ $router->group(['prefix' => 'api'], function ($router) {
     $router->get('/weather_records', 'WeatherRecordController@index');
     $router->post('/weather_records', 'WeatherRecordController@store');
     //診断記録API
-    $router->get('/index/medicals', 'MedicalController@index');
+    $router->get('/index/medicals', 'MedicalController@simpleIndex');
     $router->get('/medicals', 'MedicalController@index');
     $router->post('/medicals', 'MedicalController@store');
     $router->get('/medicals/{id}', 'MedicalController@show');
