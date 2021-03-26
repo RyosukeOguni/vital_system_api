@@ -23,6 +23,7 @@ $router->group(['prefix' => 'api'], function ($router) {
     $router->get('/users/{id}', 'UserController@show');
     $router->put('/users/{id}', 'UserController@update');
     $router->delete('/users/{id}', 'UserController@destroy');
+    $router->post('/users/selectdelete', 'UserController@selectdelete');
     //天候API
     $router->get('/weather_records', 'WeatherRecordController@index');
     $router->post('/weather_records', 'WeatherRecordController@store');

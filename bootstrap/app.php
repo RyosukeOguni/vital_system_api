@@ -73,6 +73,11 @@ $app->configure('app');
 |
 */
 
+// CORSエラーを許可するミドルウェアを有効化
+$app->middleware([
+    App\Http\Middleware\Cors::class
+]);
+
 // $app->middleware([
 //     App\Http\Middleware\ExampleMiddleware::class
 // ]);
