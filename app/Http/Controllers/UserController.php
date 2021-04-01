@@ -74,9 +74,7 @@ class UserController extends Controller
 
   public function selectdelete(Request $request)
   {
-    $content = $request->getContent();
-    // 合体演算子??で、第一オペランドがnullの場合、空配列[]を返す
-    $json = json_decode($content, true) ?? [];
+    $json = $request->all();
     User::destroy(array_column($json,'id'));
     return response('Deleted successfully.', 200);
   }
