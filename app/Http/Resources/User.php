@@ -25,7 +25,7 @@ class User extends JsonResource
           'sex' => $this->sex,
           'diagnosis' => $this->diagnosis,
           'note' => $this->note,
-          'created_at' => $this->created_at->format('Y年m月d日')
+          'created_at' => $this->created_at
         ],
       ],
       'links' => [
