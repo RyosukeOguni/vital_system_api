@@ -75,7 +75,7 @@ class UserController extends Controller
   public function selectdelete(Request $request)
   {
     $json = $request->all();
-    User::destroy(array_column($json,'id'));
-    return response('Deleted successfully.', 200);
+    $users = User::destroy(array_column($json,'id'));
+    return response('Deleted ' . $users .'recode successfully.', 200);
   }
 }
