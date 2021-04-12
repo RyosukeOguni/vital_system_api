@@ -15,7 +15,7 @@ class WeatherRecord extends JsonResource
     public function toArray($request)
     {
         return [
-            'date' => [
+            'data' => [
                 'type' => $this->getTable(),
                 'id' => $this->id,
                 'attribute' => [
