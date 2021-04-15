@@ -20,7 +20,7 @@ class WeatherRecordFactory extends Factory
         $temp = $this->faker->randomFloat(1, 0, 36);
         $humidity = $this->faker->randomFloat(1, 60, 70);
         return [
-            'weather' => $this->faker->numberBetween(1, 6),
+            'weather' => $this->faker->numberBetween(1, 4),
             'temp' => $temp,
             'humidity' => $humidity,
             'room_temp' => $temp + 10,
