@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\WeatherRecord;
 use App\Http\Resources\WeatherRecordCollection;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Http\Resources\WeatherRecord as WeatherRecordResource;
 
 class WeatherRecordController extends Controller
@@ -17,7 +18,16 @@ class WeatherRecordController extends Controller
   public function index(Request $request)
   {
     if ($request->query('day')) {
-      $weather = WeatherRecord::where('day', $request->day)->firstorFail();
+      try {
+        $weather = WeatherRecord::where('day', $request->day)->firstorFail();
+      } catch (ModelNotFoundException $e) {
+        // 日付の天候情報が見つからなかった場合、404エラーのjsonを返す
+        $weather = "WeatherRecord:$request->day not found";
+        return response()->json(
+          $weather,
+          404
+        );
+      }
       return new WeatherRecordResource($weather);
     }
     $weathers = WeatherRecord::all();
