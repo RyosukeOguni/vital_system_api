@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class MedicalIndex extends JsonResource
+class VitalIndex extends JsonResource
 {
   /**
    * Transform the resource into an array.
@@ -30,7 +30,7 @@ class MedicalIndex extends JsonResource
         ],
       ],
       'links' => [
-        'self' => url('/api/index/medicals/' . $this->id),
+        'self' => url('/api/index/vitals/' . $this->id),
       ]
     ];
   }

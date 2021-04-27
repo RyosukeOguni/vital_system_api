@@ -29,12 +29,12 @@ $router->group(['prefix' => 'api'], function ($router) {
   $router->post('/weather_records', 'WeatherRecordController@store');
   $router->put('/weather_records/{id}', 'WeatherRecordController@update');
   //診断記録API
-  $router->get('/index/medicals', 'MedicalController@simpleIndex');
-  $router->get('/medicals', 'MedicalController@index');
-  $router->post('/medicals', 'MedicalController@store');
-  $router->get('/medicals/{id}', 'MedicalController@show');
-  $router->put('/medicals/{id}', 'MedicalController@update');
-  $router->delete('/medicals/{id}', 'MedicalController@destroy');
+  $router->get('/index/vitals', 'VitalController@simpleIndex');
+  $router->get('/vitals', 'VitalController@index');
+  $router->post('/vitals', 'VitalController@store');
+  $router->get('/vitals/{id}', 'VitalController@show');
+  $router->put('/vitals/{id}', 'VitalController@update');
+  $router->delete('/vitals/{id}', 'VitalController@destroy');
 });
 
 Route::get('{path:.*}', function () {

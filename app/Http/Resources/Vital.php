@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class Medical extends JsonResource
+class Vital extends JsonResource
 {
   /**
    * Transform the resource into an array.
@@ -32,7 +32,7 @@ class Medical extends JsonResource
           'humidity' => $this->weatherRecord->humidity,
           'room_temp' => $this->weatherRecord->room_temp,
           'room_humidity' => $this->weatherRecord->room_humidity,
-          //Medical情報
+          //Vital情報
           'body_temp' => $this->body_temp,
           'pulse' => $this->pulse,
           'breath' => $this->breath,
@@ -102,11 +102,11 @@ class Medical extends JsonResource
           'injection_note' => $this->injection_note,
           'choke' => $this->choke,
           'step' => $this->step,
-          'medical_note' => $this->medical_note,
+          'total_vital_note' => $this->total_vital_note,
         ],
       ],
       'links' => [
-        'self' => url('/api/medicals/' . $this->id),
+        'self' => url('/api/vitals/' . $this->id),
       ]
     ];
   }

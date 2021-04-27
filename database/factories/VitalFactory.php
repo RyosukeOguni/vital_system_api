@@ -2,12 +2,12 @@
 
 namespace Database\Factories;
 
-use App\Models\Medical;
+use App\Models\Vital;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class MedicalFactory extends Factory
+class VitalFactory extends Factory
 {
-  protected $model = Medical::class;
+  protected $model = Vital::class;
 
   public function definition(): array
   {
@@ -90,7 +90,7 @@ class MedicalFactory extends Factory
       'injection_note' => $this->faker->realText,
       'choke' => $this->faker->numberBetween(1, 7),
       'step' => $this->faker->numberBetween(1, 8),
-      'medical_note' => $this->faker->realText,
+      'total_vital_note' => $this->faker->realText,
     ];
   }
 

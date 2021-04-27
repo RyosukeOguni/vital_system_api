@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class MedicalCollection extends ResourceCollection
+class VitalIndexCollection extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.
@@ -17,7 +17,7 @@ class MedicalCollection extends ResourceCollection
         return [
             'data' => $this->collection,
             'links' => [
-                'self' => url('/api/medicals'),
+                'self' => url('/api/index/vitals'),
             ]
         ];
     }

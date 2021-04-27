@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Medical;
+use App\Models\Vital;
 use Illuminate\Http\Request;
-use App\Http\Resources\Medical as MedicalResource;
-use App\Http\Resources\MedicalCollection;
-use App\Http\Resources\MedicalIndexCollection;
+use App\Http\Resources\Vital as VitalResource;
+use App\Http\Resources\VitalCollection;
+use App\Http\Resources\VitalIndexCollection;
 
-class MedicalController extends Controller
+class VitalController extends Controller
 {
 	/**
 	 * Display a listing of the resource.
@@ -21,16 +21,16 @@ class MedicalController extends Controller
 		//クエリパラメーターが存在するなら、リレーション先の天候記録月に該当した診断記録を取得する
 		if ($request->query()) {
 			$day = $request->month;
-			$medicals = Medical::where('user_id', $request->user_id)
+			$vitals = Vital::where('user_id', $request->user_id)
 				->whereHas('weatherRecord', function ($query) use ($day) {
 					$query->where('day', 'like', "$day%");
 				})
 				->with(['user', 'weatherRecord'])
 				->get();
 		} else {
-			$medicals = Medical::with(['user', 'weatherRecord'])->get();
+			$vitals = Vital::with(['user', 'weatherRecord'])->get();
 		}
-		return new MedicalCollection($medicals);
+		return new VitalCollection($vitals);
 	}
 
 	//一覧画面用
@@ -39,16 +39,16 @@ class MedicalController extends Controller
 		//クエリパラメーターが存在するなら、リレーション先の天候記録月に該当した診断記録を取得する
 		if ($request->query()) {
 			$day = $request->month;
-			$medicals = Medical::where('user_id', $request->user_id)
+			$vitals = Vital::where('user_id', $request->user_id)
 				->whereHas('weatherRecord', function ($query) use ($day) {
 					$query->where('day', 'like', "$day%");
 				})
 				->with(['user', 'weatherRecord'])
 				->get();
 		} else {
-			$medicals = Medical::with(['user', 'weatherRecord'])->get();
+			$vitals = Vital::with(['user', 'weatherRecord'])->get();
 		}
-		return new MedicalIndexCollection($medicals);
+		return new VitalIndexCollection($vitals);
 	}
 
 	/**
@@ -59,8 +59,8 @@ class MedicalController extends Controller
 	 */
 	public function store(Request $request)
 	{
-		$medical = Medical::create($request->all());
-		return new MedicalResource($medical);
+		$vital = Vital::create($request->all());
+		return new VitalResource($vital);
 	}
 
 	/**
@@ -71,8 +71,8 @@ class MedicalController extends Controller
 	 */
 	public function show($id)
 	{
-		$medical = Medical::findorFail($id);
-		return new MedicalResource($medical);
+		$vital = Vital::findorFail($id);
+		return new VitalResource($vital);
 	}
 
 	/**
@@ -84,9 +84,9 @@ class MedicalController extends Controller
 	 */
 	public function update(Request $request, $id)
 	{
-		$medical = Medical::findorFail($id);
-		$medical->update($request->all());
-		return new MedicalResource($medical);
+		$vital = Vital::findorFail($id);
+		$vital->update($request->all());
+		return new VitalResource($vital);
 	}
 
 	/**
@@ -97,7 +97,7 @@ class MedicalController extends Controller
 	 */
 	public function destroy($id)
 	{
-		Medical::findorFail($id)->delete();
+		Vital::findorFail($id)->delete();
 		return response('Deleted successfully.', 200);
 	}
 }

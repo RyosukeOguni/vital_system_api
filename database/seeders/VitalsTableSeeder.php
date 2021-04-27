@@ -2,12 +2,12 @@
 
 namespace Database\Seeders;
 
-use App\Models\Medical;
+use App\Models\Vital;
 use App\Models\User;
 use App\Models\WeatherRecord;
 use Illuminate\Database\Seeder;
 
-class MedicalsTableSeeder extends Seeder
+class VitalsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -22,7 +22,7 @@ class MedicalsTableSeeder extends Seeder
         //月日数分のダミーデータを月始めから終わりまで作成
         for ($i = 1; $i <= $weather_records->count(); $i++) {
             for ($j = 1; $j <= $users->count(); $j++) {
-                Medical::factory()->create(['user_id' => $j, 'weather_record_id' => $i]);
+                Vital::factory()->create(['user_id' => $j, 'weather_record_id' => $i]);
             }
         }
     }

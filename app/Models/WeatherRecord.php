@@ -18,8 +18,8 @@ class WeatherRecord extends Model
     ];
 
     // 主キーの設定
-    public function medicals()
+    public function vitals()
     {
-        return $this->hasMany('App\Models\Medical');
+        return $this->hasMany('App\Models\Vital');
     }
 }

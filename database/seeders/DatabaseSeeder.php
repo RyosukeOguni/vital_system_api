@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Database\Seeders\UsersTableSeeder;
-use Database\Seeders\MedicalsTableSeeder;
+use Database\Seeders\VitalsTableSeeder;
 use Database\Seeders\WeatherRecordsTableSeeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,6 +18,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(UsersTableSeeder::class);
         $this->call(WeatherRecordsTableSeeder::class);
-        $this->call(MedicalsTableSeeder::class);
+        $this->call(VitalsTableSeeder::class);
     }
 }
