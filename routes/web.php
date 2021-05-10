@@ -27,6 +27,7 @@ $router->group(['prefix' => 'api'], function ($router) {
   //天候API
   $router->get('/weather_records', 'WeatherRecordController@index');
   $router->post('/weather_records', 'WeatherRecordController@store');
+  $router->get('/weather_records/{id}', 'WeatherRecordController@show');
   $router->put('/weather_records/{id}', 'WeatherRecordController@update');
   //診断記録API
   $router->get('/index/vitals', 'VitalController@simpleIndex');

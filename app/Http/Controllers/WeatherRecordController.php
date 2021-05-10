@@ -47,6 +47,18 @@ class WeatherRecordController extends Controller
   }
 
   /**
+   * Display the specified resource.
+   *
+   * @param  int  $id
+   * @return \Illuminate\Http\Response
+   */
+  public function show($id)
+  {
+    $weather = WeatherRecord::findorFail($id);
+    return new WeatherRecordResource($weather);
+  }
+
+  /**
    * Update the specified resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
