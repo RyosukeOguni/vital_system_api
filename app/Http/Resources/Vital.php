@@ -21,17 +21,23 @@ class Vital extends JsonResource
         'attribute' => [
           'id' => $this->id,
           //User情報
-          'name' => $this->user->name,
-          'age' => $this->user->age,
-          'sex' => $this->user->sex,
-          'diagnosis' => $this->user->diagnosis,
+          'user_id' => $this->user_id,
+          'user_data' => [
+            'name' => $this->user->name,
+            'age' => $this->user->age,
+            'sex' => $this->user->sex,
+            'diagnosis' => $this->user->diagnosis,
+          ],
           //Weather情報
-          'day' => $this->weatherRecord->day,
-          'weather' => $this->weatherRecord->weather,
-          'temp' => $this->weatherRecord->temp,
-          'humidity' => $this->weatherRecord->humidity,
-          'room_temp' => $this->weatherRecord->room_temp,
-          'room_humidity' => $this->weatherRecord->room_humidity,
+          'weather_record_id' => $this->weather_record_id,
+          'weather_data' => [
+            'day' => $this->weatherRecord->day,
+            'weather' => $this->weatherRecord->weather,
+            'temp' => $this->weatherRecord->temp,
+            'humidity' => $this->weatherRecord->humidity,
+            'room_temp' => $this->weatherRecord->room_temp,
+            'room_humidity' => $this->weatherRecord->room_humidity,
+          ],
           //Vital情報
           'body_temp' => $this->body_temp,
           'pulse' => $this->pulse,
