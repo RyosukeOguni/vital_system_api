@@ -75,6 +75,6 @@ php artisan migrate --seed
 
 ## ４．作成者情報
 
--   作成者：小国亮介
+-   作成者：小国 亮介
 -   所属：株式会社 B-FORME
 -   E-mail：oguni@b-forme.net
